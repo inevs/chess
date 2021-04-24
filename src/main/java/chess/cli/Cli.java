@@ -14,6 +14,7 @@ public class Cli {
      * @param args The command line arguments passed to the application
      */
     public static void main(String[] args) {
+        board.initializeBoard();
         String output = board.show();
         System.out.println(output);
     }

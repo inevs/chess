@@ -10,13 +10,13 @@ public class CellTest {
 
     @Test
     void emptyCellToStringIsSpace() {
-        Cell emptyCell = new Cell();
+        Cell emptyCell = new Cell(null);
         assertThat(emptyCell.toString(), is(" "));
     }
 
     @Test
     void cellWithFugureToStringIsStringOfFigure() {
-        Cell pawnCell = new Cell();
+        Cell pawnCell = new Cell(null);
         Figure whitePawn = new Pawn(false);
         pawnCell.setFigure(whitePawn);
         assertThat(pawnCell.toString(), is("P"));

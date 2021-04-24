@@ -1,9 +1,14 @@
 package chess.model;
 
 import chess.model.figure.Figure;
+import chess.model.figure.Rook;
 
 public class Cell {
     private Figure figure;
+
+    public Cell(Figure figure) {
+        this.figure = figure;
+    }
 
     public boolean isFree() {
         return figure == null;

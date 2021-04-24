@@ -13,7 +13,7 @@ class PawnTest {
     }
 
     @Test
-    void blackStringRepresentationIsp() {
+    void blackStringRepresentationIs_p() {
         Pawn pawn = new Pawn(true);
         assertThat(pawn.toString(), is("p"));
     }
