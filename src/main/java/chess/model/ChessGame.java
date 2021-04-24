@@ -17,7 +17,8 @@ public class ChessGame {
         if (input.equals("quit")) {
             exitGame = true;
         }
-        
+        Move move = new Move(input);
+        board.makeMove(move);
     }
 
     public boolean shouldExitGame() {

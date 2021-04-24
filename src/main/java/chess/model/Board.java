@@ -71,4 +71,11 @@ public class Board {
         return row;
     }
 
+    public void makeMove(Move move) {
+        Cell startCell = checkerboard[move.start.row][move.start.column];
+        Figure figure = startCell.getFigure();
+        startCell.setFigure(null);
+        Cell endCell = checkerboard[move.end.row][move.end.column];
+        endCell.setFigure(figure);
+    }
 }

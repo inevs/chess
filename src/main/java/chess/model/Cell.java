@@ -25,4 +25,8 @@ public class Cell {
             return figure.toString();
         }
     }
+
+    public Figure getFigure() {
+        return figure;
+    }
 }
