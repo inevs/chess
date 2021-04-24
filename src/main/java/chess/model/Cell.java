@@ -18,10 +18,6 @@ public class Cell {
         this.figure = figure;
     }
 
-    public Figure getFigure() {
-        return figure;
-    }
-
     public String toString() {
         if (isFree()) {
             return " ";
