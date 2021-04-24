@@ -1,4 +1,4 @@
-package chess.model;
+package chess.model.figure;
 
 public interface Figure {
 }
