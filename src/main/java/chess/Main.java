@@ -8,6 +8,7 @@ import java.util.Arrays;
 /**
  * The common starting point of the GUI and the CLI. Depending on the given command line arguments either the GUI or the
  * CLI interface are initialized.
+ * foo
  */
 public class Main {
     /**
