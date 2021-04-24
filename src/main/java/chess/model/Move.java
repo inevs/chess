@@ -14,6 +14,11 @@ public class Move {
         end = parseCellIndex(splitInput[1]);
     }
 
+    public Move(CellIndex start, CellIndex end) {
+        this.start = start;
+        this.end = end;
+    }
+
     private CellIndex parseCellIndex(String startString1) {
         String startString = startString1;
         String startColumn =  startString.substring(0, 1);
@@ -22,12 +27,4 @@ public class Move {
     }
 
     static List<String> columns = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h");
-
-    @Override
-    public String toString() {
-        return "Move{" +
-                "start=" + columns.get(start.column) + "" + start.row +
-                ", end=" + columns.get(end.column) + "" + end.row +
-                '}';
-    }
 }
