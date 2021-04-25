@@ -8,9 +8,9 @@ public class ChessGame {
     private boolean exitGame = false;
     private List<Move> moves = new ArrayList();
 
-    public ChessGame() {
-        board = new Board();
-        board.initializeBoard();
+    public ChessGame(Board board) {
+        this.board = board;
+//        this.board.initializeBoard();
     }
 
     public String showBoard() {

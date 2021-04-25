@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
  */
 public class Cli {
 
-    private static ChessGame game = new ChessGame();
+    private static ChessGame game = new ChessGame(new Board());
     /**
      * The entry point of the CLI application.
      *
