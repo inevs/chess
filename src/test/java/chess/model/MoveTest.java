@@ -10,9 +10,7 @@ class MoveTest {
     @Test
     void parsesCellIndizesFromInput() {
         Move move = new Move("e2-e3");
-        assertThat(move.start.row, is(1));
-        assertThat(move.start.column, is(4));
-        assertThat(move.end.row, is(2));
-        assertThat(move.end.column, is(4));
+        assertThat(move.start, is("e2"));
+        assertThat(move.end, is("e3"));
     }
 }

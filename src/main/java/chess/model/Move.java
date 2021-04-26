@@ -5,26 +5,25 @@ import java.util.List;
 
 public class Move {
 
-    CellIndex start;
-    CellIndex end;
+    String start;
+    String end;
 
     public Move(String input) {
-        String[] splitInput = input.split("-");
-        start = parseCellIndex(splitInput[0]);
-        end = parseCellIndex(splitInput[1]);
+        if (MoveValidator.isValidMove(input)) {
+            String[] splitInput = input.split("-");
+            start = splitInput[0];
+            end = splitInput[1];
+        }
     }
 
-    public Move(CellIndex start, CellIndex end) {
+    public Move(String start, String end) {
         this.start = start;
         this.end = end;
     }
 
-    private CellIndex parseCellIndex(String startString1) {
-        String startString = startString1;
-        String startColumn =  startString.substring(0, 1);
-        String startRowString = startString.substring(1, 2);
-        return new CellIndex(Integer.parseInt(startRowString) - 1, columns.indexOf(startColumn));
+    public void convertToUndoMove() {
+        String temp = start;
+        start = end;
+        end = temp;
     }
-
-    static List<String> columns = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h");
 }

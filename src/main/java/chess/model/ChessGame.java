@@ -10,7 +10,7 @@ public class ChessGame {
 
     public ChessGame(Board board) {
         this.board = board;
-//        this.board.initializeBoard();
+        this.board.initializeBoard();
     }
 
     public String showBoard() {
@@ -23,11 +23,10 @@ public class ChessGame {
         }
         if (input.equals("undo") && moves.size() > 0) {
             Move move = moves.get(moves.size() - 1);
-            Move undoMove = new Move(move.end, move.start);
-            board.makeMove(undoMove);
+            move.convertToUndoMove();
+            board.makeMove(move);
             moves.remove(move);
         } else {
-            // TODO: check valid move
             Move move = new Move(input);
             board.makeMove(move);
             moves.add(move);

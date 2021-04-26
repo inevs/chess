@@ -2,9 +2,13 @@ package chess.model;
 
 import chess.model.figure.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Board {
 
     private Cell[][] checkerboard;
+    static List<String> columns = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h");
 
     public Board() {
         checkerboard = new Cell[8][8];
@@ -20,7 +24,7 @@ public class Board {
             }
             output += "\n";
         }
-        output += " A B C D E F G H\n";
+        output += "  " + String.join(" ", columns).toUpperCase();
         return output;
     }
 
@@ -55,6 +59,22 @@ public class Board {
         return row;
     }
 
+    public void makeMove(Move move) {
+        CellIndex startIndex = cellIndexFor(move.start);
+        Cell startCell = checkerboard[startIndex.row][startIndex.column];
+        Figure figure = startCell.getFigure();
+        startCell.setFigure(null);
+        CellIndex endIndex = cellIndexFor(move.end);
+        Cell endCell = checkerboard[endIndex.row][endIndex.column];
+        endCell.setFigure(figure);
+    }
+
+    private CellIndex cellIndexFor(String stringIndex) {
+        String startColumn =  stringIndex.substring(0, 1);
+        String startRowString = stringIndex.substring(1, 2);
+        return new CellIndex(Integer.parseInt(startRowString) - 1, columns.indexOf(startColumn));
+    }
+
     private Cell[] pawnsRow(boolean isBlack) {
         Cell[] row = new Cell[8];
         for (int i = 0; i < 8; i++) {
@@ -69,13 +89,5 @@ public class Board {
             row[i] = new Cell(null);
         }
         return row;
-    }
-
-    public void makeMove(Move move) {
-        Cell startCell = checkerboard[move.start.row][move.start.column];
-        Figure figure = startCell.getFigure();
-        startCell.setFigure(null);
-        Cell endCell = checkerboard[move.end.row][move.end.column];
-        endCell.setFigure(figure);
     }
 }

@@ -14,11 +14,12 @@ public class ChessGameTest {
     }
 
     private static class MyBoard extends Board {
+
+        private boolean isInitialized;
+
         public boolean isInitialized() {
             return isInitialized;
         }
-
-        private boolean isInitialized;
 
         @Override
         public void initializeBoard() {
